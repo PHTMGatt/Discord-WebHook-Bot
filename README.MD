@@ -1,7 +1,7 @@
 <h1 align="center">🪝 Captain Hook: WebHook Bot</h1>
 
 <p align="center">
-  <img src="images/captain-hook-bot-banner.png?raw=true#v2" alt="Captain Hook Banner" width="480" />
+  <img src="https://raw.githubusercontent.com/PHTMGatt/12-React-Portfolio/main/src/assets/photos/Captain%20Hook.png" alt="Captain Hook project artwork" width="900" />
 </p>
 
 <p align="center">
