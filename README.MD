@@ -1,7 +1,7 @@
 <h1 align="center">🪝 Captain Hook: WebHook Bot</h1>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PHTMGatt/12-React-Portfolio/a2c43d8301679dbda14ad06dc225d61e5515e431/src/assets/project-images/Captain%20Hook.png" alt="Captain Hook project artwork" width="900" />
+  <img src="https://raw.githubusercontent.com/PHTMGatt/12-React-Portfolio/main/src/assets/photos/Captain%20Hook.png" alt="Captain Hook project artwork" width="900" />
 </p>
 
 <p align="center">
