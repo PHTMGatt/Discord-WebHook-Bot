@@ -6,10 +6,10 @@
     "start": "node src/index.js",
     "build": "echo \"no build step needed\"",
     "render-build": "npm install && npm run build",
-    "restart": "npm stop --if-present && npm start"
+    "restart": "npm stop --if-present && npm start",
+    "test": "node --check src/index.js && node --check src/format.js && node --check src/webhooks.js"
   },
   "dependencies": {
-    "discord-webhook-bot": "file:",
     "dotenv": "^16.3.1",
     "express": "^4.21.2",
     "node-fetch": "^2.6.7",

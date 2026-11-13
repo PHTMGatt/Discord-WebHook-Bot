@@ -1,5 +1,5 @@
 // Note; OpenAI client for GPT commit cleanup
-const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require("openai");
 
 // Note; fallback formatter if GPT fails or no API key
 function cleanLocalMessage(msg) {
@@ -12,18 +12,17 @@ async function cleanWithChatGPT(rawMessage) {
   if (!apiKey) return cleanLocalMessage(rawMessage);
 
   try {
-    const config = new Configuration({ apiKey });
-    const openai = new OpenAIApi(config);
+    const openai = new OpenAI({ apiKey });
 
     const prompt = `Rewrite this Git commit message to be short, clear, and Discord-ready:\n\n"${rawMessage}"`;
 
-    const response = await openai.createChatCompletion({
+    const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
       max_tokens: 60,
     });
 
-    return response.data.choices?.[0]?.message?.content.trim() || cleanLocalMessage(rawMessage);
+    return response.choices?.[0]?.message?.content?.trim() || cleanLocalMessage(rawMessage);
   } catch (err) {
     console.error("⚠️ GPT formatting failed:", err.message);
     return cleanLocalMessage(rawMessage);
