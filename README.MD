@@ -59,14 +59,24 @@ https://discord-webhook-bot-1f23.onrender.com/github
 
 ---
 
-## ⚙️ Optional `.env` (for local dev or personal hosting)
+## 🚀 Run Locally
 
-```env
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook
-OPENAI_API_KEY=sk-...
+**Status:** maintained. Requires Node 18+.
+
+```bash
+npm install
+npm start      # listens on PORT (default 3000)
+npm test       # syntax check (also run by CI)
 ```
 
-The API key enables GPT formatting. Without it, the bot falls back to local message cleanup.
+Optional `.env` (git-ignored). Names only:
+
+| Variable | Used for |
+| --- | --- |
+| `OPENAI_API_KEY` | Optional. Enables GPT commit cleanup; without it the bot uses local cleanup |
+| `PORT` | Optional. Defaults to `3000` |
+
+Registered repo → webhook mappings are saved to `src/webhooks.json` (git-ignored, contains secret webhook URLs). Only `https://discord.com/api/webhooks/...` URLs are accepted at `/register`.
 
 ---
 

@@ -11,7 +11,9 @@ const STORAGE_FILE = path.join(__dirname, "webhooks.json");
 
 // Note; Register a repo and save to disk
 function registerRepo(repo, webhook) {
-  if (!repo || !webhook || !webhook.startsWith("http")) {
+  // Only real Discord webhook URLs (blocks the server being used to call arbitrary hosts)
+  const DISCORD_WEBHOOK = /^https:\/\/(?:(?:ptb|canary)\.)?discord(?:app)?\.com\/api\/webhooks\/\d+\/[\w-]+/;
+  if (!repo || !webhook || !DISCORD_WEBHOOK.test(webhook)) {
     throw new Error("Invalid repo or webhook URL");
   }
 
@@ -19,7 +21,8 @@ function registerRepo(repo, webhook) {
   repoToWebhook.set(safeRepo, webhook);
   saveWebhooksToDisk();
 
-  console.log(`✅ Registered: ${safeRepo} → ${webhook}`);
+  // Never log the webhook URL itself (it is a secret)
+  console.log(`✅ Registered: ${safeRepo}`);
 }
 
 // Note; Get a webhook by repo name
